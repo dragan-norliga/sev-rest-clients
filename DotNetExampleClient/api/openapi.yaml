@@ -1,0 +1,477 @@
+openapi: 3.0.1
+info:
+  title: Sev Data flex API v1.0
+  version: v1.0
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/CustomerRESTApi/login_and_get_jwt_token:
+    post:
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/LoginInput'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginInput'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LoginInput'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LoginInput'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - CustomerRESTApi
+  /api/CustomerRESTApi/refresh_jwt_key_token:
+    post:
+      responses:
+        "200":
+          description: Success
+      tags:
+      - CustomerRESTApi
+  /api/CustomerRESTApi/get_available_meters:
+    post:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomerWithInstallations'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomerWithInstallations'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomerWithInstallations'
+                type: array
+          description: Success
+      tags:
+      - CustomerRESTApi
+  /api/CustomerRESTApi/hourly_kwh_usage:
+    post:
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustKwhMeteresReading'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustKwhMeteresReading'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustKwhMeteresReading'
+                type: array
+          description: Success
+      tags:
+      - CustomerRESTApi
+  /api/CustomerRESTApi/estimated_CO2:
+    post:
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustKwhMeteresReading'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustKwhMeteresReading'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustKwhMeteresReading'
+                type: array
+          description: Success
+      tags:
+      - CustomerRESTApi
+  /api/CustomerRESTApi/estimated_cost:
+    post:
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FilterCustKwhMeteresReading'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EsitmatedCostPerMeter'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EsitmatedCostPerMeter'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EsitmatedCostPerMeter'
+                type: array
+          description: Success
+      tags:
+      - CustomerRESTApi
+components:
+  schemas:
+    LoginInput:
+      additionalProperties: false
+      example:
+        password: password
+        user_name: user_name
+      properties:
+        user_name:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      type: object
+    CustMeter:
+      additionalProperties: false
+      example:
+        removal_date: removal_date
+        meter_name: meter_name
+        serial_number: serial_number
+        install_date: install_date
+        meter_type: meter_type
+        meter_id: 1
+        meter_nickname: "{}"
+      properties:
+        meter_id:
+          format: int32
+          type: integer
+        meter_nickname:
+          additionalProperties: false
+          nullable: true
+          type: object
+        serial_number:
+          nullable: true
+          type: string
+        meter_name:
+          nullable: true
+          type: string
+        meter_type:
+          nullable: true
+          type: string
+        install_date:
+          nullable: true
+          type: string
+        removal_date:
+          nullable: true
+          type: string
+      type: object
+    CustInstallation:
+      additionalProperties: false
+      example:
+        address: address
+        inst_nickname: inst_nickname
+        postal_district: postal_district
+        move_on_date: 2000-01-23T04:56:07.000+00:00
+        billing_type: billing_type
+        move_in_date: 2000-01-23T04:56:07.000+00:00
+        inst_id: 0
+        tarif_number: 6
+        floor: floor
+        postal_code: postal_code
+        meters:
+        - removal_date: removal_date
+          meter_name: meter_name
+          serial_number: serial_number
+          install_date: install_date
+          meter_type: meter_type
+          meter_id: 1
+          meter_nickname: "{}"
+        - removal_date: removal_date
+          meter_name: meter_name
+          serial_number: serial_number
+          install_date: install_date
+          meter_type: meter_type
+          meter_id: 1
+          meter_nickname: "{}"
+      properties:
+        move_in_date:
+          format: date-time
+          type: string
+        move_on_date:
+          format: date-time
+          nullable: true
+          type: string
+        inst_id:
+          format: int32
+          type: integer
+        inst_nickname:
+          nullable: true
+          type: string
+        address:
+          nullable: true
+          type: string
+        floor:
+          nullable: true
+          type: string
+        postal_code:
+          nullable: true
+          type: string
+        postal_district:
+          nullable: true
+          type: string
+        tarif_number:
+          format: int32
+          type: integer
+        billing_type:
+          nullable: true
+          type: string
+        meters:
+          items:
+            $ref: '#/components/schemas/CustMeter'
+          nullable: true
+          type: array
+      type: object
+    CustomerWithInstallations:
+      additionalProperties: false
+      example:
+        installations:
+        - address: address
+          inst_nickname: inst_nickname
+          postal_district: postal_district
+          move_on_date: 2000-01-23T04:56:07.000+00:00
+          billing_type: billing_type
+          move_in_date: 2000-01-23T04:56:07.000+00:00
+          inst_id: 0
+          tarif_number: 6
+          floor: floor
+          postal_code: postal_code
+          meters:
+          - removal_date: removal_date
+            meter_name: meter_name
+            serial_number: serial_number
+            install_date: install_date
+            meter_type: meter_type
+            meter_id: 1
+            meter_nickname: "{}"
+          - removal_date: removal_date
+            meter_name: meter_name
+            serial_number: serial_number
+            install_date: install_date
+            meter_type: meter_type
+            meter_id: 1
+            meter_nickname: "{}"
+        - address: address
+          inst_nickname: inst_nickname
+          postal_district: postal_district
+          move_on_date: 2000-01-23T04:56:07.000+00:00
+          billing_type: billing_type
+          move_in_date: 2000-01-23T04:56:07.000+00:00
+          inst_id: 0
+          tarif_number: 6
+          floor: floor
+          postal_code: postal_code
+          meters:
+          - removal_date: removal_date
+            meter_name: meter_name
+            serial_number: serial_number
+            install_date: install_date
+            meter_type: meter_type
+            meter_id: 1
+            meter_nickname: "{}"
+          - removal_date: removal_date
+            meter_name: meter_name
+            serial_number: serial_number
+            install_date: install_date
+            meter_type: meter_type
+            meter_id: 1
+            meter_nickname: "{}"
+        customer_name: customer_name
+      properties:
+        customer_name:
+          nullable: true
+          type: string
+        installations:
+          items:
+            $ref: '#/components/schemas/CustInstallation'
+          nullable: true
+          type: array
+      type: object
+    FilterCustKwhMeteresReading:
+      additionalProperties: false
+      example:
+        from_date: 2000-01-23T04:56:07.000+00:00
+        to_date: 2000-01-23T04:56:07.000+00:00
+        meters:
+        - 0
+        - 0
+      properties:
+        meters:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        from_date:
+          format: date-time
+          type: string
+        to_date:
+          format: date-time
+          type: string
+      type: object
+    CustKwhReading:
+      additionalProperties: false
+      example:
+        unit: unit
+        time_stamp: 2000-01-23T04:56:07.000+00:00
+        reading: 0.8008281904610115
+        cumulative_value: 6.027456183070403
+      properties:
+        time_stamp:
+          format: date-time
+          type: string
+        reading:
+          format: double
+          type: number
+        cumulative_value:
+          format: double
+          nullable: true
+          type: number
+        unit:
+          nullable: true
+          type: string
+      type: object
+    CustKwhMeteresReading:
+      additionalProperties: false
+      example:
+        readings:
+        - unit: unit
+          time_stamp: 2000-01-23T04:56:07.000+00:00
+          reading: 0.8008281904610115
+          cumulative_value: 6.027456183070403
+        - unit: unit
+          time_stamp: 2000-01-23T04:56:07.000+00:00
+          reading: 0.8008281904610115
+          cumulative_value: 6.027456183070403
+        meter_id: meter_id
+      properties:
+        meter_id:
+          nullable: true
+          type: string
+        readings:
+          items:
+            $ref: '#/components/schemas/CustKwhReading'
+          nullable: true
+          type: array
+      type: object
+    CustDKRReading:
+      additionalProperties: false
+      example:
+        price_unit: 6.027456183070403
+        unit: unit
+        tarif: 1
+        time_stamp: 2000-01-23T04:56:07.000+00:00
+        reading: 0.8008281904610115
+      properties:
+        time_stamp:
+          format: date-time
+          type: string
+        reading:
+          format: double
+          type: number
+        unit:
+          nullable: true
+          type: string
+        price_unit:
+          format: double
+          type: number
+        tarif:
+          format: int32
+          type: integer
+      type: object
+    EsitmatedCostPerMeter:
+      additionalProperties: false
+      example:
+        readings:
+        - price_unit: 6.027456183070403
+          unit: unit
+          tarif: 1
+          time_stamp: 2000-01-23T04:56:07.000+00:00
+          reading: 0.8008281904610115
+        - price_unit: 6.027456183070403
+          unit: unit
+          tarif: 1
+          time_stamp: 2000-01-23T04:56:07.000+00:00
+          reading: 0.8008281904610115
+        meter_id: meter_id
+      properties:
+        meter_id:
+          nullable: true
+          type: string
+        readings:
+          items:
+            $ref: '#/components/schemas/CustDKRReading'
+          nullable: true
+          type: array
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample:\
+        \ \"Bearer 1safsfsdfdfd\""
+      in: header
+      name: Authorization
+      type: apiKey
+

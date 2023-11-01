@@ -1,0 +1,523 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Sev Data flex API v1.0",
+    "version": "v1.0"
+  },
+  "paths": {
+    "/api/CustomerRESTApi/login_and_get_jwt_token": {
+      "post": {
+        "tags": [
+          "CustomerRESTApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CustomerRESTApi/refresh_jwt_key_token": {
+      "post": {
+        "tags": [
+          "CustomerRESTApi"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CustomerRESTApi/get_available_meters": {
+      "post": {
+        "tags": [
+          "CustomerRESTApi"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerWithInstallations"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerWithInstallations"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerWithInstallations"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CustomerRESTApi/hourly_kwh_usage": {
+      "post": {
+        "tags": [
+          "CustomerRESTApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustKwhMeteresReading"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustKwhMeteresReading"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustKwhMeteresReading"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CustomerRESTApi/estimated_CO2": {
+      "post": {
+        "tags": [
+          "CustomerRESTApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustKwhMeteresReading"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustKwhMeteresReading"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustKwhMeteresReading"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CustomerRESTApi/estimated_cost": {
+      "post": {
+        "tags": [
+          "CustomerRESTApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterCustKwhMeteresReading"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EsitmatedCostPerMeter"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EsitmatedCostPerMeter"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EsitmatedCostPerMeter"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginInput": {
+        "type": "object",
+        "properties": {
+          "user_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustMeter": {
+        "type": "object",
+        "properties": {
+          "meter_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "meter_nickname": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          },
+          "serial_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "meter_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "meter_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "install_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "removal_date": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustInstallation": {
+        "type": "object",
+        "properties": {
+          "move_in_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "move_on_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "inst_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "inst_nickname": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "floor": {
+            "type": "string",
+            "nullable": true
+          },
+          "postal_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "postal_district": {
+            "type": "string",
+            "nullable": true
+          },
+          "tarif_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "billing_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "meters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustMeter"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerWithInstallations": {
+        "type": "object",
+        "properties": {
+          "customer_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "installations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustInstallation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterCustKwhMeteresReading": {
+        "type": "object",
+        "properties": {
+          "meters": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "from_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "to_date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustKwhReading": {
+        "type": "object",
+        "properties": {
+          "time_stamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reading": {
+            "type": "number",
+            "format": "double"
+          },
+          "cumulative_value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustKwhMeteresReading": {
+        "type": "object",
+        "properties": {
+          "meter_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "readings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustKwhReading"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustDKRReading": {
+        "type": "object",
+        "properties": {
+          "time_stamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reading": {
+            "type": "number",
+            "format": "double"
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          },
+          "price_unit": {
+            "type": "number",
+            "format": "double"
+          },
+          "tarif": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsitmatedCostPerMeter": {
+        "type": "object",
+        "properties": {
+          "meter_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "readings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustDKRReading"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

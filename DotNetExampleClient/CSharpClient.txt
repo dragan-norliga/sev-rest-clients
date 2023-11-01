@@ -1,0 +1,15 @@
+   Prerequisites for Ubuntu distro:
+
+   sudo apt update
+   sudo apt install -y jq
+   sudo apt install openjdk-11-jre-headless
+   
+   cd some_path_to_the_folder_where_the_scripts_should_be_downloaded # if you use WSL be aware that pat is usually /mnt/c/.........  
+   curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ./openapi-generator-cli.sh
+   ls -ali
+   chmod u+x ./openapi-generator-cli.sh
+
+   OPENAPI_GENERATOR_VERSION=6.6.0 ./openapi-generator-cli.sh generate -i "./swagger.json" -g csharp-netcore -o "../DotNetExampleClient" -a Authorization
+
+
+   Additional documentation: https://github.com/OpenAPITools/openapi-generator/blob/v6.6.0/docs/generators/csharp-netcore.md
