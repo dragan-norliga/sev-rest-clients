@@ -94,7 +94,7 @@ namespace Org.OpenAPITools.Test.Api
                 {
                     FromDate = DateTime.ParseExact("2023-08-25 00:00:00", "yyyy-MM-dd HH:mm:ss",
                     CultureInfo.InvariantCulture),
-                    ToDate = DateTime.ParseExact("2023-05-26 00:00:00", "yyyy-MM-dd HH:mm:ss",
+                    ToDate = DateTime.ParseExact("2023-08-26 00:00:00", "yyyy-MM-dd HH:mm:ss",
                     CultureInfo.InvariantCulture),
                     Meters = new List<int> { 33343, 44377 } // Put your meters here
                 }
