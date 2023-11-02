@@ -12,8 +12,8 @@ Automatically generated REST API client examples for the Customer REST API on SE
 ## How to use the .NET 6 example
 
 1. Prerequisite: Install .NET 6 SDK from [here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
-2. Navigate to the subfolder DotNetExampleClient.
-3. Enter your REST API credentials in DotNetExampleClient\DotNetExampleClient\Program.cs.
+2. Navigate to the subfolder [DotNetExampleClient](DotNetExampleClient).
+3. Enter your REST API credentials in [DotNetExampleClient\DotNetExampleClient\Program.cs](DotNetExampleClient/DotNetExampleClient/Program.cs) file.
 4. In the command prompt, navigate to DotNetExampleClient (cd ..) and issue the following command: `dotnet build -c release`.
 5. Navigate to the subfolder DotNetExampleClient\DotNetExampleClient\bin\Release\net6.0.
 6. Start DotNetExampleClient.exe.
@@ -21,15 +21,15 @@ Automatically generated REST API client examples for the Customer REST API on SE
 ## How to use the Python 3.9 example
 
 1. Prerequisites: Install Python 3.9.
-2. Enter the PythonExampleClient subfolder.
+2. Enter the [PythonExampleClient](PythonExampleClient) subfolder.
 3. Open a command prompt and execute `python setup.py install --user`.
-4. Enter your REST API credentials in the client-example.py file.
+4. Enter your REST API credentials in the [PythonExampleClient/client-example.py](PythonExampleClient/client-example.py) file.
 5. Start the example by running `python client-example.py`.
 
 ## Additional Documentation
 
-1. .NET 6 Client: Refer to README.md inside DotNetExampleClient and CSharpClient.txt.
-2. Python: Refer to README.md inside PythonExampleClient and PythonClient.txt.
+1. .NET 6 Client: Refer to README.md inside [DotNetExampleClient](DotNetExampleClient) and [CSharpClient.txt](DotNetExampleClient/CSharpClient.txt).
+2. Python: Refer to README.md inside [PythonExampleClient](PythonExampleClient) and [PythonClient.txt](PythonExampleClient/PythonClient.txt).
 
    
      
