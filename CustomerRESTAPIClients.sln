@@ -8,7 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7082E483-6AFA-439A-8188-F50E78C03222}"
 	ProjectSection(SolutionItems) = preProject
 		DotNetExampleClient\CSharpClient.txt = DotNetExampleClient\CSharpClient.txt
-		PythonClient.txt = PythonClient.txt
+		PythonExampleClient\PythonClient.txt = PythonExampleClient\PythonClient.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Org.OpenAPITools", "DotNetExampleClient\src\Org.OpenAPITools\Org.OpenAPITools.csproj", "{685BCBE0-8F8B-4B9A-8EC5-A006725206ED}"
