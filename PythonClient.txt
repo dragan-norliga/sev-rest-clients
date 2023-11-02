@@ -1,0 +1,54 @@
+Install java, Java 8 runtime at a minimum
+
+### On Windows using power shell
+Invoke-WebRequest -OutFile swagger-codegen-cli.jar https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.33/swagger-codegen-cli-3.0.33.jar
+## For available otpions java -jar swagger-codegen-cli.jar --help
+java -jar swagger-codegen-cli.jar generate -i ./swagger.json -l python -o ../PythonExampleClient
+
+### Create virtual environment for the client
+
+C:\....\PythonExampleClient
+python -m venv restclientenv
+restclientenv\Scripts\activate
+pip install -r requirements.txt
+
+# we had to patch the generated file
+After generating the code you should patch the following lines in the module CustomerRESTApiClients\PythonExampleClient\swagger_client\api\customer_rest_api_api.py:
+
+
+def api_customer_rest_api_login_and_get_jwt_token_post_with_http_info(self, **kwargs):
+
+ return self.api_client.call_api(
+            '/api/CustomerRESTApi/login_and_get_jwt_token', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=bytes,  # REPLACE none with bytes!!!!!!
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+
+ def api_customer_rest_api_refresh_jwt_key_token_post_with_http_info(self, **kwargs):
+
+ return self.api_client.call_api(
+            '/api/CustomerRESTApi/refresh_jwt_key_token', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=bytes,  # REPLACE none with bytes!!!!!!
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)

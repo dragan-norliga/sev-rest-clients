@@ -13,11 +13,4 @@
 
 
    Additional documentation: https://github.com/OpenAPITools/openapi-generator/blob/v6.6.0/docs/generators/csharp-netcore.md
-   Other languages https://github.com/OpenAPITools/openapi-generator/tree/v6.6.0/docs/generators
-   
-   for python:
-
-   OPENAPI_GENERATOR_VERSION=6.6.0 ./openapi-generator-cli.sh generate -i "./swagger.json" -g python -o "../PythonExampleClient" -a Authorization
-
-   
-   Other generators https://github.com/swagger-api/swagger-codegen
+   Other languages https://github.com/OpenAPITools/openapi-generator/tree/v6.6.0/docs/generators    
