@@ -52,3 +52,12 @@ def api_customer_rest_api_login_and_get_jwt_token_post_with_http_info(self, **kw
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+
+DO NOT FORGET TO UPDATE CREDENTIALS IN client-example.py!
+
+Now you can execute the code like this:
+
+C:\....\PythonExampleClient
+restclientenv\Scripts\activate
+python client-example.py
